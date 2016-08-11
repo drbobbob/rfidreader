@@ -1,0 +1,14 @@
+#!/bin/bash
+
+GOOGLE_API_URL="Insert api key here"
+
+cd "$( dirname "${BASH_SOURCE[0]}" )"
+cp acl acl.previous
+wget "https://script.google.com/macros/s/${GOOGLE_API_URL}/exec" -O acl.new
+acl_start=$(head -c 1 acl.new)
+if [[ $acl_start != "<" ]]; then
+   echo "Validated ACL, updating"
+   cp acl.new acl
+else
+   echo "ACL did not validate"
+fi

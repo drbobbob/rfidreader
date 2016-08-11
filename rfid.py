@@ -7,7 +7,10 @@ Created on May 25, 2014
 from os import sys
 import argparse
 import serial
-import RPi.GPIO as GPIO
+try:
+    import RPi.GPIO as GPIO
+except ImportError:
+    import CHIP_IO.GPIO as GPIO
 import log
 import time
 import string
