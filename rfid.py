@@ -71,20 +71,21 @@ class Solenoid(object):
         except AttributeError:
             pass
         GPIO.setup(self.pin, GPIO.OUT)
+        GPIO.output(self.pin, True)
 
     # Open the door
     def open_door(self):
         logger.info("door is open")
-        GPIO.output(self.pin, True)
+        GPIO.output(self.pin, False)
         #time.sleep(self.openduration)
         time.sleep(10.0)
-        GPIO.output(self.pin, False)
         logger.info("door is closed")
+        GPIO.output(self.pin, True)
 
     def blink_door(self):
-        GPIO.output(self.pin, True)
-        time.sleep(0.1)
         GPIO.output(self.pin, False)
+        time.sleep(0.1)
+        GPIO.output(self.pin, True)
 
 
 class Reader(object):
