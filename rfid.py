@@ -20,8 +20,8 @@ my_file_path = os.path.dirname(os.path.realpath(__file__))
 acl_file = os.path.join(my_file_path, 'acl')
 update_script = os.path.join(my_file_path, 'updateACL')
 
-buttonPin = "CSID1"
-solenoid_pin = "CSID0"
+buttonPin = "CSID5"
+solenoid_pin = "CSID1"
 baud_rate = 9600
 
 logger = log.setup_logger('reader.log')
