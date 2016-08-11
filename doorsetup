@@ -1,0 +1,23 @@
+Enable network
+For chip this involves nmtui
+Change hostname
+
+Install Chip GPIO libraries
+https://github.com/xtacocorex/CHIP_IO
+
+Install pyserial
+sudo apt-get install python-serial
+
+
+crontab:
+35 4 * * * /root/rfidreader updateACL
+
+/etc/rc.local
+
+systemctl stop serial-getty@ttyS0.service
+
+(
+cd /root/rfidreader
+python rfid.py -p "/dev/ttyS0" -lo "/root/rfid.log" &
+)
+
